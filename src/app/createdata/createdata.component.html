@@ -1,0 +1,34 @@
+<div class="container-fluid mb-5">
+  <h3 style="margin: 10px; color: blue;">{{header}}</h3>
+  <form #userform="ngForm" >
+  
+    <div class="form-group mt-3">
+      <label>Project Name</label>
+      <input type="text" required #projectname=ngModel [class.is-invalid]="projectname.invalid && projectname.touched"
+        class="form-control" name="projectname" [(ngModel)]="data.projectname">
+      <p class="text-danger" *ngIf=" projectname.errors?.['required']">projectname is required</p>
+
+    </div>
+    <div class="form-group">
+      <label>Project Lead</label>
+      <input type="text" class="form-control" #projectlead="ngModel" required name="projectlead"
+        [class.is-invalid]="projectlead.invalid && projectlead.touched" [(ngModel)]="data.projectlead">
+    </div>
+    <small class="text-danger" *ngIf="projectlead.errors?.['required'] ">projectlead is required</small>
+
+    <div class="form-group">
+      <label>Project Startdate</label>
+      <input type="text" class="form-control" #projectstartdate="ngModel" required name="projectstartdate"
+        [class.is-invalid]="projectstartdate.invalid && projectstartdate.touched" [(ngModel)]="data.projectstartdate">
+    </div>
+    <p class="text-danger" *ngIf="projectstartdate.errors?.['required']">projectstartdate is required</p>
+   
+    <br>
+
+
+
+    
+    <button class="btn btn-primary" type="submit" (click)="submitform(userform.value)" >Submit</button>
+
+  </form>
+</div>

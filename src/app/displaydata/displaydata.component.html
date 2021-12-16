@@ -1,0 +1,24 @@
+<div class="container">
+    <table class="table mt-4 " >
+ <thead>
+     <tr>
+     <th>Id</th>
+     <th>projectName</th>
+     <th>projectLead</th>
+     <th>projectStartDate</th>
+     <th>Actions</th>
+     </tr>
+ </thead>
+ <tbody>
+     <tr *ngFor="let x of users;let   i=index ">
+         <td>{{i+1}}</td>
+         <td>{{ x.projectname}}</td>
+         <td>{{x.projectlead}}</td>
+         <td>{{x.projectstartdate}}</td>
+         <td><button class="btn btn-success" [routerLink]="['/edit/',x.id]" >Update</button></td>
+         <td><button class="btn btn-danger" (click)="ondelete(x.id)">Delete</button></td>
+         <td><button class="btn btn-warning"  [routerLink]="['/list/',x.id]">View</button></td>
+     </tr>
+ </tbody>
+    </table>
+</div>
